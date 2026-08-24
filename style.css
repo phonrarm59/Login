@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Itim&family=Montserrat:wght@400;500;600;700&family=Pacifico&display=swap");
+.hero-section {
+  position: relative; /* สำคัญ: เพื่อเป็นฐานให้เลเยอร์ absolute ข้างใน */
+  width: 100%;
+  height: 100vh;      /* สูงเต็มหน้าจอพอดี */
+  overflow: hidden;   /* ตัดส่วนเกินออก */
+}
+.content-section {
+  position: relative;
+  z-index: 10;        /* ดันให้อยู่เหนือเลเยอร์อื่น */
+  padding: 80px 20px;
+  background-color: #f0f2f5; /* สีพื้นหลัง */
+}
+body {
+  background-color: #eaeef3; /* ใส่รหัสสี หรือชื่อสีที่ต้องการ */
+}
+.profile img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 850px;
+  height: 850px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-container {
+  text-align: center;
+  margin-top: 30px;
+}
+.nav-links a {
+  font-family: "Montserrat", serif ;  
+  text-decoration: none;        /* เอาเส้นใต้ออก */
+  margin: 0 30px;               /* ระยะห่างระหว่างคำ */
+  font-size: 20px;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.281);              /* ขนาดตัวอักษร */
+  color: #313131;
+}
+
+.nav-links { 
+  position: fixed;
+  left: 50%;          /* จัดให้อยู่กลางหน้าจอ */
+  transform: translateX(-50%); /* จัดบาลานซ์กลางเป๊ะ */         /* ระยะห่างจากขอบบนสุดเมื่อลอยค้าง */
+  z-index: 1000;
+  display: flex;/* ทำให้กรอบยืดขนาดพอดีตามข้อความข้างใน */
+  gap: 20px;
+  white-space: nowrap;
+  justify-content: center;        
+  border: none;                 /* เส้นขอบสีดำ (เปลี่ยนสี/ความหนาได้) */
+  border-radius: 15px;           /* ทำมุมโค้งมน */
+  padding: 20px 10px; 
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.452);          /* ระยะห่างภายในกรอบ (บน-ล่าง 10px, ซ้าย-ขวา 25px) */
+  background-color: #fcfcfc;      
+}
+/* จัดการกล่องครอบทั้งหมด */
+.animation-container {
+    position: relative; /* สำคัญ: เป็นจุดอ้างอิงให้ลูกๆ ที่ใช้ absolute/fixed positioning */
+    overflow: hidden;    /* ซ่อนข้อความส่วนที่วิ่งออกนอกกล่อง */
+}
+
+/* สไตล์รูปภาพ */
+.foreground-image {
+    position: absolute;   /* สำคัญ: ให้ลอยขึ้นมาทับข้อความ */ 
+    z-index: 9;            /* เลขยิ่งเยอะ ยิ่งอยู่หน้า: ให้รูปภาพอยู่ข้างหน้าสุด */
+}
+
+/* สไตล์กล่องข้อความวิ่ง */
+.background-scrolling-text {
+    position: absolute;   /* สำคัญ: ให้ลอยขึ้นมาแต่อยู่หลังรูปภาพ */
+    bottom: 20%;
+    width: 99%;           /* ปรับตำแหน่งความสูงของข้อความจากด้านล่าง (ปรับตามต้องการ) */         /* เต็มความกว้างกล่องครอบ */
+    overflow: hidden;     /* ซ่อนส่วนที่เกินจากความกว้างกล่อง */
+    white-space: nowrap;  /* สำคัญ: บังคับให้ข้อความอยู่ในบรรทัดเดียว ไม่ขึ้นบรรทัดใหม่ */
+}
+
+/* สไตล์ข้อความข้างในที่วิ่ง */
+.background-scrolling-text span {
+    font-family: "Cormorant Garamond", serif ;
+    display: inline-block; /* ทำให้ span รับค่า margin/padding ได้ */
+    padding-left: 100%;   /* เริ่มต้นวิ่งจากนอกหน้าจอขวา */
+    font-size: 30rem;      /* ขนาดตัวอักษรใหญ่ๆ (ปรับตามต้องการ) */
+    color: rgba(0, 0, 0, 0.50); /* สีข้อความจางๆ (adjust as needed) */
+    animation: scroll-text 25s linear infinite; /* เรียกใช้ animation */
+}
+
+/* สร้าง Animation ด้วย @keyframes */
+@keyframes scroll-text {
+    0% {
+        transform: translate3d(0, 0, 0); /* เริ่มต้น: ไม่ต้องขยับ */
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0); /* จบ: เลื่อนไปทางซ้ายจนหมด */
+    }
+}
+
