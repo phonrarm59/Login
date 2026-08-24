@@ -95,3 +95,28 @@ html {
     }
 }
 
+/* โค้ดสำหรับปรับปรุง .nav-links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0px;                  /* ลดระยะห่างระหว่างปุ่มลง */
+  
+  max-width: 90%;             /* คุมไม่ให้กรอบกว้างเกินจอ */
+  overflow-x: auto;           /* อนุญาตให้ปัดซ้าย-ขวาเมื่อเนื้อหาล้น */
+  white-space: nowrap;        /* ห้ามขึ้นบรรทัดใหม่ */
+  
+  /* ซ่อนแถบ Scrollbar ให้ดูสะอาดตา */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;      /* สำหรับ Firefox */
+}
+
+/* ซ่อน Scrollbar สำหรับ Chrome, Safari, Edge */
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-links a {
+  font-size: 14px;            /* ลดขนาดตัวหนังสือลงนิดหน่อยบนมือถือ */
+  flex-shrink: 0;             /* ป้องกันไม่ให้ตัวหนังสือถูกบีบเบี้ยว */
+}
