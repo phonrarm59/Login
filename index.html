@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="./re.png" type="image/png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
 </head>
@@ -37,9 +38,102 @@
         </div>
     </div> 
 </section>
-<section id="ABOUT" class="content-section">
-  <h2>ABOUT ME</h2>
-  <p>รายละเอียดเกี่ยวกับตัวคุณ...</p>
-</section>     
 </body>
+
+
+<body>
+  
+<section id="ABOUT" class="content-section">
+  <div class="about-container">
+    
+    <!-- ฝั่งซ้าย: รูปภาพโปรไฟล์ -->
+    <div class="about-profile">
+      <img src="logo4.PNG" alt="Tepamorn Koetthong" class="about-img" />
+    </div>
+
+    <!-- ฝั่งขวา: ข้อความแนะนำตัว -->
+    <div class="about-details">
+      <span class="sub-title">Seeker of Knowledge</span>
+      <h2>Tepamorn Koetthong</h2>
+      <h3>ABOUT ME</h3>
+      <p>
+        Hi! I'm a 2nd-year <strong>Computer Engineering</strong> student at 
+        <strong>Southeast Asia University</strong>. I enjoy turning complex problems 
+        into simple, beautiful, and intuitive designs.
+      </p>
+      <p>
+        My focus is on web development, UI/UX design, and mastering modern software tools. 
+        Always eager to learn and build impactful projects.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- แถบ Status Cards ด้านล่าง -->
+  <div class="status-container">
+    <h2 class="currently-title">Currently</h2>
+
+    <div class="status-card">
+      <div class="icon-box">
+        <i class="fa-solid fa-code"></i>
+      </div>
+      <div class="status-text">
+        <h4>Building</h4>
+        <p>Web & digital projects</p>
+      </div>
+    </div>
+
+    <div class="status-card">
+      <div class="icon-box">
+        <i class="fa-solid fa-flask"></i>
+      </div>
+      <div class="status-text">
+        <h4>Exploring</h4>
+        <p>Software testing & QA</p>
+      </div>
+    </div>
+
+    <div class="status-card">
+      <div class="icon-box">
+        <i class="fa-solid fa-rocket"></i>
+      </div>
+      <div class="status-text">
+        <h4>Learning</h4>
+        <p>Full-stack development</p>
+      </div>
+    </div>
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const subTitle = document.querySelector(".sub-title");
+
+    // ใช้ IntersectionObserver เพื่อตรวจจับเมื่อองค์ประกอบโผล่เข้ามาในหน้าจอ
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // เมื่อสโครลล์มาถึง ให้ใส่คลาส active เพื่อเล่น Animation
+            subTitle.classList.add("active");
+          } else {
+            // (Option) ลบคลาสออกเมื่อเลื่อนออกไป เพื่อให้เล่น Animation ใหม่เวลาสโครลล์กลับมา
+            subTitle.classList.remove("active");
+          }
+        });
+      },
+      {
+        threshold: 0.3, // ทำงานเมื่อสโครลล์มาเห็นองค์ประกอบอย่างน้อย 30%
+      }
+    );
+
+    if (subTitle) {
+      observer.observe(subTitle);
+    }
+  });
+</script>
+</section>
+
+
+
+</div>
+</section>     
 </html> 
