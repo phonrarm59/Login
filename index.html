@@ -16,6 +16,7 @@
 
 </head>
 <body>
+  <script src="script.js"></script>
   <section class="hero-section">
   <div class="nav-container">
   <div class="nav-links" style="text-align: center;">
@@ -37,12 +38,11 @@
             <span>TEPAMORN &nbsp;&nbsp;&nbsp; KOETTHON</span>
         </div>
     </div> 
+
+
+
 </section>
-</body>
 
-
-<body>
-  
 <section id="ABOUT" class="content-section">
   <div class="about-container">
     
@@ -133,7 +133,76 @@
 </section>
 
 
+<!-- ส่วนที่ 3: Education Section -->
+<section id="EDUCATION" class="education-section">
+  <div class="education-container">
+    <h2 class="education-title">EDUCATION</h2>
 
-</div>
-</section>     
-</html> 
+    <div class="timeline">
+      
+      <!-- การศึกษาที่ 1: มหาวิทยาลัย (ปัจจุบัน) -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2025 - Present</span>
+          <h3>Bachelor of Engineering (Computer Engineering)</h3>
+          <h4>Southeast Asia University</h4>
+          <p>Currently in 2nd year. Focus on Web Development, Software Engineering, and Data Structures.</p>
+        </div>
+      </div>
+
+      <!-- การศึกษาที่ 2: มัธยมศึกษา (ปรับเปลี่ยนชื่อโรงเรียนตามจริง) -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2020 - 2023</span>
+          <h3>Higher Vocational Certificate (Mechanical and Automotive Engineering)</h3>
+          <h4>Nonthaburi Technology College</h4>
+          <p>I graduated with a focus on mathematics, mechanical engineering, and automotive engineering.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="year">2020 - 2023</span>
+          <h3>High School Diploma ( Arts-General Program )</h3>
+          <h4>Tupprayapittaya School</h4>
+          <p>Graduated with an emphasis on arts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const eduTitle = document.querySelector(".education-title");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                eduTitle.classList.add("active");
+              } else {
+                eduTitle.classList.remove("active");
+              }
+            });
+          },
+          {
+            threshold: 0.5,
+          }
+        );
+
+        if (eduTitle) {
+          observer.observe(eduTitle);
+        }
+      });
+    </script>
+<!-- ปุ่ม Back to Top -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+</body>
+</html>
+ 

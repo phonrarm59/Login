@@ -36,7 +36,7 @@ html {
   text-decoration: none; 
   color: #333;
   padding-bottom: 4px;       /* เอาเส้นใต้ออก */
-  margin: 0 30px;               /* ระยะห่างระหว่างคำ */
+  margin: 0 40px;               /* ระยะห่างระหว่างคำ */
   font-size: 20px;
   text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.281);              /* ขนาดตัวอักษร */
   color: #313131;
@@ -53,7 +53,7 @@ html {
   justify-content: center;        
   border: none;                 /* เส้นขอบสีดำ (เปลี่ยนสี/ความหนาได้) */
   border-radius: 15px;           /* ทำมุมโค้งมน */
-  padding: 20px 10px; 
+  padding: 15px 100px; 
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.452);          /* ระยะห่างภายในกรอบ (บน-ล่าง 10px, ซ้าย-ขวา 25px) */
   background-color: #fcfcfc;      
 }
@@ -226,14 +226,14 @@ html {
 .about-img {
   width: 180px;
   height: auto;
-  border-radius: 20px;
+  border-radius: 90px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* ตกแต่งตัวอักษรฝั่งขวา */
 .about-details .sub-title {
   font-family: "Cormorant Garamond", serif ;
-  font-size: 70px;
+  font-size: 60px;
   color: #585f66;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -311,4 +311,177 @@ html {
     50% {
         border-color: transparent;
     }
+}
+
+/* จัดโครงสร้างกล่อง Education */
+.education-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  box-sizing: border-box;
+}
+
+.education-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.education-title {
+  font-family: "Cormorant Garamond", serif ;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+  color: #585f66;
+}
+
+/* เส้น Timeline แนวตั้ง */
+.timeline {
+  position: relative;
+  padding-left: 30px;
+  border-left: 3px solid #e5e7eb; /* เส้นเชื่อมลำดับเวลา */
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* จุดวงกลมบนเส้น Timeline */
+.timeline-dot {
+  position: absolute;
+  left: -39px; /* ดึงจุดวงกลมไปทับเส้นแนวตั้ง */
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #8a8a8a; /* สีจุดวงกลมหลัก */
+  border: 4px solid #ffffff;  /* ขอบสีขาวดูลอยมีมิติ */
+  box-shadow: 0 0 0 2px #111827;
+}
+
+/* กล่องการ์ดข้อความ */
+.timeline-content {
+  background: #fff8f8;
+  padding: 24px 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* เอฟเฟกต์ยกการ์ดขึ้นเมื่อเอาเมาส์ไปชี้ */
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content .year {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif ;
+  font-size: 25px;
+  font-weight: 600;
+  color: #222222;
+  background-color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.timeline-content h3 {
+  font-family: "Cormorant Garamond", serif ;
+  font-size: 20px;
+  margin: 0 0 6px 0;
+  color: #0e0e0e;
+}
+
+.timeline-content h4 {
+  font-family: "Cormorant Garamond", serif ;
+  font-size: 20px;
+  font-weight: 500;
+  color: #18191b;
+  margin: 0 0 12px 0;
+}
+
+.timeline-content p {
+  font-family: "Cormorant Garamond", serif ;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #1b1e22;
+  margin: 0;
+}
+
+.education-title {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 50;
+}
+
+.education-title.active {
+    width: 100%;
+    animation: typing 3s steps(30, end),
+               blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* ปุ่ม Back to Top */
+.back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 90px;
+  width: 60px;
+  height: 60px;
+  background-color: #585f66;    /* สีปุ่ม (เปลี่ยนตามธีมเว็บได้) */
+  color: #ffffff;               /* สีไอคอน */
+  border: none;
+  border-radius: 50%;           /* ทำเป็นวงกลม */
+  box-shadow: 0 2px 10px rgb(49, 49, 49);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 9999;
+  
+  /* สถานะซ่อนไว้ในตอนแรก + ทำอนิเมชันตอนปรากฏ */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+/* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ */
+.back-to-top:hover {
+  background-color: #c0c0c0;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* คลาสสำหรับสั่งให้ปุ่มโผล่ขึ้นมา */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
