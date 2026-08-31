@@ -333,22 +333,16 @@ html {
 .education-title {
   font-family: "Cormorant Garamond", serif ;
   text-align: center;
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 50px;
+  margin-bottom: 30px;
   letter-spacing: 4px;
   color: #585f66;
 }
 
-/* เส้น Timeline แนวตั้ง */
-.timeline {
-  position: relative;
-  padding-left: 30px;
-  border-left: 3px solid #e5e7eb; /* เส้นเชื่อมลำดับเวลา */
-}
 
 .timeline-item {
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 90px;
 }
 
 .timeline-item:last-child {
@@ -368,19 +362,15 @@ html {
   box-shadow: 0 0 0 2px #111827;
 }
 
-/* กล่องการ์ดข้อความ */
+
+
 .timeline-content {
-  background: #fff8f8;
-  padding: 24px 30px;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* เอฟเฟกต์ยกการ์ดขึ้นเมื่อเอาเมาส์ไปชี้ */
 .timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px) rotate(1deg); /* ลอยขึ้นและเอียง 1 องศา */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 .timeline-content .year {
@@ -388,8 +378,7 @@ html {
   font-family: "Cormorant Garamond", serif ;
   font-size: 25px;
   font-weight: 600;
-  color: #222222;
-  background-color: #ffffff;
+  color: #252525;
   padding: 4px 12px;
   border-radius: 20px;
   margin-bottom: 12px;
@@ -465,23 +454,397 @@ html {
   font-size: 20px;
   z-index: 9999;
   
-  /* สถานะซ่อนไว้ในตอนแรก + ทำอนิเมชันตอนปรากฏ */
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
+
 }
 
-/* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ */
-.back-to-top:hover {
-  background-color: #c0c0c0;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+/* =========================
+   WORK EXPERIENCE
+========================= */
+
+.experience-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* เพิ่มระยะเว้นด้านบน 100px กันโดน Navbar บัง */
+  padding-top:100px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+  
+  /* แก้จุดนี้: เปลี่ยนจาก hidden เป็น visible เพื่อไม่ให้ตัดหัวข้อทิ้ง */
+  overflow: visible; 
 }
 
-/* คลาสสำหรับสั่งให้ปุ่มโผล่ขึ้นมา */
-.back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.nav-links {
+  position: fixed; /* หรือ sticky */
+  top: 20px;
+  z-index: 9999;    /* ดันแถบเมนูให้อยู่ชั้นบนสุดเสมอ */
 }
+.experience-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.experience-title  { /*dw546*/
+  text-align: center;
+  font-family: "Cormorant Garamond", serif ;
+  font-size: 55px;
+  letter-spacing: 3px;
+  color: #555b61;
+}
+
+
+/* Timeline */
+
+.experience-timeline {
+  position: relative;
+  max-width: 1500px;
+  margin: auto;
+}
+
+
+/* เส้นกลาง */
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #9ca1a6;
+  transform: translateX(-50%);
+}
+
+
+/* Item */
+
+.experience-item {
+   position: relative;
+
+  width: 50%;
+
+  padding: 0 30px 5px;
+
+  box-sizing: border-box;
+}
+
+
+/* ซ้าย / ขวา */
+
+.experience-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.experience-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+
+/* จุด Timeline */
+
+.timeline-dot {
+  position: absolute;
+  top: 4px;
+
+  width: 15px;
+  height: 15px;
+
+  border: 2px solid #333;
+  border-radius: 50%;
+
+  background: #e9edf3;
+
+  box-shadow: inset 0 0 0 5px #e9edf3;
+}
+
+
+/* จุดฝั่งซ้าย */
+
+.experience-item:nth-child(odd) .timeline-dot {
+  right: -13px;
+}
+
+
+/* จุดฝั่งขวา */
+
+.experience-item:nth-child(even) .timeline-dot {
+  left: -13px;
+}
+
+
+/* Content */
+
+.experience-content {
+  font-family: Georgia, serif;
+}
+
+
+.experience-date {
+  font-family: "Cormorant Garamond", serif ;
+  display: block;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  color: #333;
+
+  margin-bottom: 10px;
+}
+
+
+.experience-content h3 {
+  font-family: "Cormorant Garamond", serif ;
+  margin: 0;
+
+  font-size: 25px;
+  font-weight: bold;
+
+  color: #222;
+}
+
+
+.experience-content h4 {
+  font-family: "Cormorant Garamond", serif ;
+  margin: 8px 0 10px;
+
+  font-size: 20px;
+  font-weight: normal;
+
+  color: #000000;
+}
+
+
+.experience-content p {
+  font-family: "Cormorant Garamond", serif ;
+  margin: 0;
+
+  font-size: 19px;
+  line-height: 1.8;
+
+  color: #000000;
+}
+
+
+/* Tags */
+
+.experience-tags {
+  display: flex;
+  gap: 20px;
+  margin-top: 0px;
+  flex-wrap: wrap;
+}
+
+.experience-item:nth-child(odd) .experience-tags {
+  justify-content: flex-end;
+}
+
+.experience-tags span {
+  padding: 5px 20px;
+
+  border: 1px solid #aaa;
+  border-radius: 20px;
+
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+
+  color: #555;
+}
+
+
+
+/* =========================
+   Animation
+========================= */
+/* จัดให้หัวข้ออยู่ตรงกลางและตั้งค่าพิมพ์ดีด */
+.experience-title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 0 auto;
+}
+
+/* คลาส active เมื่อสโครลล์มาถึง */
+.experience-title.active {
+  animation: 
+    typing-exp 1.8s steps(15, end) forwards, 
+    blink 0.75s infinite;
+}
+
+@keyframes typing-exp {
+  from { width: 0; }
+  to { width: 22ch; } /* ความยาว 15 ตัวอักษร */
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 768px) {
+
+  .experience-section {
+    padding: 100px 25px;
+  }
+
+  .experience-section .section-title {
+    font-size: 32px;
+    margin-bottom: 60px;
+  }
+
+  .experience-timeline::before {
+    left: 10px;
+  }
+
+  .experience-item,
+  .experience-item:nth-child(even),
+  .experience-item:nth-child(odd) {
+    width: 100%;
+    left: 0;
+    text-align: left;
+
+    padding-left: 45px;
+    padding-right: 10px;
+  }
+
+  .experience-item:nth-child(odd) .timeline-dot,
+  .experience-item:nth-child(even) .timeline-dot {
+    left: -2px;
+    right: auto;
+  }
+
+  .experience-item:nth-child(odd) .experience-tags {
+    justify-content: flex-start;
+  }
+
+}
+
+.projects-section {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.projects-container {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* หัวข้อพิมพ์ดีด (ใช้โค้ดร่วมกับ WORK EXPERIENCE ได้เลย เปลี่ยนแค่ชื่อ Class) */
+.projects-title {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 0 auto;
+}
+.projects-title.active {
+  animation: typing-proj 1.5s steps(12, end) forwards; /* WORK GALLERY = 12 ตัว */
+}
+@keyframes typing-proj {
+  from { width: 0; }
+  to { width: 12.5ch; }
+}
+
+/* ตั้งค่ากล่อง Swiper */
+.swiper {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 500px; /* ขนาดความกว้างรูป */
+  height: 300px; /* ขนาดความสูงรูป */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* สีปุ่มเลื่อนซ้าย-ขวา */
+.swiper-button-next, .swiper-button-prev {
+  color: #2563eb;
+}
+.swiper-pagination-bullet-active {
+  background: #2563eb;
+}
+
+/* กล่องข้อความแสดงรายละเอียดด้านล่าง */
+.project-info-display {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 150px; /* จองพื้นที่ไว้ไม่ให้เว็บขยับขึ้นลง */
+}
+
+.project-info-display h3 {
+  font-size: 24px;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.project-info-display p {
+  font-size: 15px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background-color: #111827;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.github-btn:hover {
+  background-color: #374151;
+}
+/* สร้างพื้นหลังวงกลมสีขาว พร้อมเงาให้ปุ่มลอยขึ้นมา */
+.swiper-button-next, .swiper-button-prev {
+  background-color: #ffffff;
+  width: 50px;       /* ปรับขนาดความกว้างปุ่ม */
+  height: 50px;      /* ปรับขนาดความสูงปุ่ม */
+  border-radius: 50%; /* ทำให้เป็นวงกลม */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* เพิ่มเงา */
+  color: #2563eb;    /* สีของลูกศร */
+}
+
+/* ปรับขนาดไอคอนลูกศรด้านในให้เล็กลงพอดีกับวงกลม */
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+/* (ออปชันเสริม) ถ้าอยากดันออกไปข้างนอกด้วย ก็ใส่ขอบเขตเพิ่มได้เลย */
+.swiper-button-next { right: 10px; }
+.swiper-button-prev { left: 10px; }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 
 </head>
@@ -23,9 +24,10 @@
   <a href="#ABOUT">ABOUT</a>
   <a href="#EDUCATION">EDUCATION</a>
   <a href="#WORK">WORK EXPERIENCE</a>
-  <a href="#PROJECT">PROJECT</a>
+  <a href="#PROJECTS">PROJECTS</a>
   <a href="#SKILLS">SKILLS</a>
   <a href="#C">CONTACT</a>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   </div>
 </div>
 
@@ -198,6 +200,228 @@
         }
       });
     </script>
+
+    <section id="WORK" class="experience-section">
+
+  <div class="title-wrapper">
+  <h2 class="experience-title">WORK EXPERIENCE</h2>
+</div>
+    <div class="experience-timeline">
+
+      <!-- Experience 1 -->
+      <div class="experience-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="experience-content">
+          <span class="experience-date">2024 - Present</span>
+
+          <h3>Automotive Technician</h3>
+
+          <h4>MG Service Center</h4>
+
+          <p>
+            Responsible for vehicle maintenance, troubleshooting,
+            inspection, and general automotive repair.
+          </p>
+
+          <div class="experience-tags">
+            <span>Maintenance</span>
+            <span>Diagnostics</span>
+            <span>Repair</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Experience 2 -->
+      <div class="experience-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="experience-content">
+          <span class="experience-date">2023 - 2024</span>
+
+          <h3>Automotive Technician</h3>
+
+          <h4>Car air conditioner</h4>
+
+          <p>
+            Perform car air conditioning inspections, conduct mechanical maintenance, and diagnose and resolve issues with the air conditioning and electrical systems.
+          </p>
+
+          <div class="experience-tags">
+            <span>Mechanical</span>
+            <span>Inspection</span>
+            <span>Service</span>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- Experience 3 -->
+      <div class="experience-item">
+
+        <div class="timeline-dot"></div>
+
+        <div class="experience-content">
+          <span class="experience-date">2022 - 2023</span>
+
+          <h3>Automotive Internship</h3>
+
+          <h4>Automotive Service Center</h4>
+
+          <p>
+            Gained hands-on experience in automotive maintenance,  suspension systems.
+          </p>
+
+          <div class="experience-tags">
+            <span>Automotive</span>
+            <span>Mechanical</span>
+            <span>Teamwork</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <script>
+    const expTitle = document.querySelector(".experience-title");
+
+if (expTitle) {
+  const expObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          expTitle.classList.add("active");
+        } else {
+          expTitle.classList.remove("active");
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  expObserver.observe(expTitle);
+}
+  </script>
+
+</section>
+
+<!-- ส่วนที่ 4: projects -->
+<section id="PROJECTS" class="projects-section">
+  <div class="projects-container">
+    <div class="title-wrapper">
+      <h2 class="projects-title">WORK GALLERY</h2>
+    </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        
+        <!-- รูปที่ 1 -->
+        <div class="swiper-slide" 
+             data-title="Boarding House Rental System" 
+             data-desc="Developed a web-based boarding house rental platform for managing property listings, bookings, and payments." 
+             data-link="https://github.com/yourusername/repo1">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Project 1">
+        </div>
+
+        <!-- รูปที่ 2 -->
+        <div class="swiper-slide" 
+             data-title="E-Commerce Web App" 
+             data-desc="A fully responsive e-commerce application with a shopping cart, user authentication, and payment gateway integration." 
+             data-link="https://github.com/yourusername/repo2">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="Project 2">
+        </div>
+
+        <!-- รูปที่ 3 -->
+        <div class="swiper-slide" 
+             data-title="Automotive Service Dashboard" 
+             data-desc="An internal dashboard built for mechanics to track vehicle repair status and manage spare parts inventory." 
+             data-link="https://github.com/yourusername/repo3">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Project 3">
+        </div>
+
+      </div>
+      
+      <!-- ปุ่มเลื่อนซ้าย-ขวา -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- ส่วนแสดงรายละเอียดด้านล่าง (อัปเดตอัตโนมัติผ่าน JS) -->
+    <div class="project-info-display">
+      <h3 id="display-title">Project Title</h3>
+      <p id="display-desc">Project Description goes here.</p>
+      <a id="display-link" href="#" target="_blank" class="github-btn">
+        <i class="fa-brands fa-github"></i> View on GitHub
+      </a>
+    </div>
+
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  
+  // 1. ตั้งค่า Animation หัวข้อ WORK GALLERY
+  const projTitle = document.querySelector(".projects-title");
+  if (projTitle) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) projTitle.classList.add("active");
+        else projTitle.classList.remove("active");
+      });
+    }, { threshold: 0.2 });
+    observer.observe(projTitle);
+  }
+
+  // 2. ตั้งค่า Swiper.js แบบ 3D Coverflow
+  var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+      rotate: 0,        // องศาการหมุนรูปด้านข้าง (0 = หน้าตรง)
+      stretch: 0,       // ระยะห่างซ้อนทับกัน
+      depth: 150,       // ความลึก 3D
+      modifier: 2,      // ตัวคูณเอฟเฟกต์
+      slideShadows: true, // เงาสะท้อนรูปด้านข้าง
+    },
+    loop: true,         // เลื่อนวนลูปได้
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      // เมื่อเปลี่ยนสไลด์ ให้ดึงข้อมูลมาเปลี่ยนข้อความด้านล่าง
+      slideChangeTransitionStart: function () {
+        const activeSlide = this.slides[this.activeIndex];
+        const title = activeSlide.getAttribute("data-title");
+        const desc = activeSlide.getAttribute("data-desc");
+        const link = activeSlide.getAttribute("data-link");
+
+        document.getElementById("display-title").innerText = title;
+        document.getElementById("display-desc").innerText = desc;
+        document.getElementById("display-link").href = link;
+      }
+    }
+  });
+});
+  </script>
+</section>
+
+
+
 <!-- ปุ่ม Back to Top -->
 <button id="backToTop" class="back-to-top" aria-label="Back to top">
   <i class="fa-solid fa-arrow-up"></i>
