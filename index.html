@@ -325,26 +325,26 @@ if (expTitle) {
         
         <!-- รูปที่ 1 -->
         <div class="swiper-slide" 
-             data-title="Boarding House Rental System" 
-             data-desc="Developed a web-based boarding house rental platform for managing property listings, bookings, and payments." 
-             data-link="https://github.com/yourusername/repo1">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Project 1">
+             data-title="THAI HOTLINE APP" 
+             data-desc="Thai Hotline App (สายด่วน THAILAND) is a comprehensive mobile directory designed to provide quick and easy access to essential contact numbers across Thailand." 
+             data-link="https://github.com/phonrarm59/flutter_thai_hotline_app">
+          <img src="call.png" alt="Project 1">
         </div>
 
         <!-- รูปที่ 2 -->
         <div class="swiper-slide" 
-             data-title="E-Commerce Web App" 
-             data-desc="A fully responsive e-commerce application with a shopping cart, user authentication, and payment gateway integration." 
-             data-link="https://github.com/yourusername/repo2">
-          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80" alt="Project 2">
+             data-title="BODY HEALTH CALCULATOR APP" 
+             data-desc="Body Health Calculator is a practical health utility mobile application designed to help users quickly assess their body metrics and daily caloric requirements." 
+             data-link="https://github.com/phonrarm59/flutter_sau_health_calculator_app">
+          <img src="calcu.png" alt="Project 2">
         </div>
 
         <!-- รูปที่ 3 -->
         <div class="swiper-slide" 
-             data-title="Automotive Service Dashboard" 
-             data-desc="An internal dashboard built for mechanics to track vehicle repair status and manage spare parts inventory." 
-             data-link="https://github.com/yourusername/repo3">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Project 3">
+             data-title="CAKE CALL FAST APP" 
+             data-desc="Cake Call Fast (สายด่วนกินเค้ก) is a specialized mobile directory application designed for dessert lovers to easily discover and contact popular bakeries and cake shops." 
+             data-link="https://github.com/phonrarm59/flutter_cake_shop_app">
+          <img src="cake.png" alt="Project 3">
         </div>
 
       </div>
@@ -366,58 +366,58 @@ if (expTitle) {
 
   </div>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-  
-  // 1. ตั้งค่า Animation หัวข้อ WORK GALLERY
-  const projTitle = document.querySelector(".projects-title");
-  if (projTitle) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) projTitle.classList.add("active");
-        else projTitle.classList.remove("active");
-      });
-    }, { threshold: 0.2 });
-    observer.observe(projTitle);
-  }
-
-  // 2. ตั้งค่า Swiper.js แบบ 3D Coverflow
-  var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    coverflowEffect: {
-      rotate: 0,        // องศาการหมุนรูปด้านข้าง (0 = หน้าตรง)
-      stretch: 0,       // ระยะห่างซ้อนทับกัน
-      depth: 150,       // ความลึก 3D
-      modifier: 2,      // ตัวคูณเอฟเฟกต์
-      slideShadows: true, // เงาสะท้อนรูปด้านข้าง
-    },
-    loop: true,         // เลื่อนวนลูปได้
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    on: {
-      // เมื่อเปลี่ยนสไลด์ ให้ดึงข้อมูลมาเปลี่ยนข้อความด้านล่าง
-      slideChangeTransitionStart: function () {
-        const activeSlide = this.slides[this.activeIndex];
-        const title = activeSlide.getAttribute("data-title");
-        const desc = activeSlide.getAttribute("data-desc");
-        const link = activeSlide.getAttribute("data-link");
-
-        document.getElementById("display-title").innerText = title;
-        document.getElementById("display-desc").innerText = desc;
-        document.getElementById("display-link").href = link;
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    // 1. ตั้งค่า Animation หัวข้อ WORK GALLERY (ส่วนนี้ที่หายไป)
+    const projTitle = document.querySelector(".projects-title");
+    if (projTitle) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            projTitle.classList.add("active");
+          } else {
+            projTitle.classList.remove("active");
+          }
+        });
+      }, { threshold: 0.2 });
+      observer.observe(projTitle);
     }
+
+    // 2. ตั้งค่า Swiper.js แบบ 3D Coverflow
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,        // องศาการหมุนรูปด้านข้าง (0 = หน้าตรง)
+        stretch: 0,       // ระยะห่างซ้อนทับกัน
+        depth: 150,       // ความลึก 3D
+        modifier: 2,      // ตัวคูณเอฟเฟกต์
+        slideShadows: true, // เงาสะท้อนรูปด้านข้าง
+      },
+      loop: false,        // เลื่อนวนลูป (เปลี่ยนจาก 0 เป็น false เพื่อความถูกต้องของ Swiper)
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      on: {
+        // เมื่อเปลี่ยนสไลด์ ให้ดึงข้อมูลมาเปลี่ยนข้อความด้านล่าง
+        slideChangeTransitionStart: function () {
+          const firstSlide = swiper.slides[swiper.activeIndex];
+
+          document.getElementById("display-title").innerText = firstSlide.dataset.title;
+          document.getElementById("display-desc").innerText = firstSlide.dataset.desc;
+          document.getElementById("display-link").href = firstSlide.dataset.link;
+        }
+      }
+    });
   });
-});
-  </script>
+</script>
 </section>
 
 

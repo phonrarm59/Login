@@ -436,26 +436,6 @@ html {
 }
 
 /* ปุ่ม Back to Top */
-.back-to-top {
-  position: fixed;
-  bottom: 50px;
-  right: 90px;
-  width: 60px;
-  height: 60px;
-  background-color: #585f66;    /* สีปุ่ม (เปลี่ยนตามธีมเว็บได้) */
-  color: #ffffff;               /* สีไอคอน */
-  border: none;
-  border-radius: 50%;           /* ทำเป็นวงกลม */
-  box-shadow: 0 2px 10px rgb(49, 49, 49);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  z-index: 9999;
-  
-
-}
 
 /* =========================
    WORK EXPERIENCE
@@ -492,7 +472,7 @@ html {
   font-family: "Cormorant Garamond", serif ;
   font-size: 55px;
   letter-spacing: 3px;
-  color: #555b61;
+  color: #727a81;
 }
 
 
@@ -722,129 +702,455 @@ html {
     right: auto;
   }
 
-  .experience-item:nth-child(odd) .experience-tags {
+  .experience-item:nth-child(odd) .experience-tags {  
     justify-content: flex-start;
   }
 
 }
 
+
+
+/* =====================================================
+   PROJECTS / WORK GALLERY
+   ===================================================== */
+   .title-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+/* 2. สไตล์ของหัวข้อที่จะทำพิมพ์ดีด */
+.projects-title {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 0;
+}
+
+/* 3. คำสั่งเล่นอนิเมชันพิมพ์ดีดเมื่อสโครลล์มาถึง */
+.projects-title.active {
+  animation: 
+    typing-proj 1.5s steps(12, end) forwards, /* steps(12) คือพิมพ์ทีละจังหวะ 12 ครั้ง */
+    blink 0.75s infinite;
+}
+
+/* 4. อนิเมชันความกว้างของคำ */
+@keyframes typing-proj {
+  from { width: 0; }
+  to { width: 19ch; } /* 12.5ch คือความยาวพอดีกับคำว่า WORK GALLERY */
+}
+
 .projects-section {
   min-height: 100vh;
-  padding-top: 100px;
-  padding-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
+  background: #e9edf2;
+  padding: 110px 40px 50px;
+  box-sizing: border-box;
   overflow: hidden;
 }
 
 .projects-container {
   width: 100%;
-  max-width: 1000px;
-}
-
-/* หัวข้อพิมพ์ดีด (ใช้โค้ดร่วมกับ WORK EXPERIENCE ได้เลย เปลี่ยนแค่ชื่อ Class) */
-.projects-title {
-  display: block;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 0;
+  max-width: 1400px;
   margin: 0 auto;
-}
-.projects-title.active {
-  animation: typing-proj 1.5s steps(12, end) forwards; /* WORK GALLERY = 12 ตัว */
-}
-@keyframes typing-proj {
-  from { width: 0; }
-  to { width: 12.5ch; }
+  text-align: center;
 }
 
-/* ตั้งค่ากล่อง Swiper */
-.swiper {
+
+/* =====================================================
+   TITLE
+   ===================================================== */
+
+.title-wrapper {
+  margin-bottom: 35px;
+  overflow: hidden;
+}
+
+.projects-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif ;
+  font-size: clamp(42px, 6vw, 80px);
+  font-weight: 300;
+  letter-spacing: 8px;
+  color: #777;
+  
+  opacity: 0;
+  transform: translateY(35px);
+  transition: all 1s ease;
+}
+
+.projects-title.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =====================================================
+   SWIPER
+   ===================================================== */
+
+.mySwiper {
   width: 100%;
-  padding-top: 40px;
-  padding-bottom: 50px;
+  max-width: 1200px;
+  height: 430px;
+  margin: 0 auto;
+  padding: 20px 0 55px;
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  align-items: center;
 }
 
 .swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 500px; /* ขนาดความกว้างรูป */
-  height: 300px; /* ขนาดความสูงรูป */
-  border-radius: 16px;
+  width: 520px;
+  height: 330px;
+
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+
+  background: #fff;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease,
+    filter 0.5s ease;
+
+  position: relative;
 }
 
+
+/* รูป */
+
 .swiper-slide img {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+
+  transition: transform 0.7s ease;
 }
 
-/* สีปุ่มเลื่อนซ้าย-ขวา */
-.swiper-button-next, .swiper-button-prev {
-  color: #2563eb;
+
+/* รูปตรงกลาง */
+
+.swiper-slide-active {
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.20);
 }
+
+.swiper-slide-active img {
+  transform: scale(1.02);
+}
+
+
+/* รูปด้านข้าง */
+
+.swiper-slide:not(.swiper-slide-active) {
+  opacity: 0.65;
+  filter: grayscale(20%);
+}
+
+
+/* Hover */
+
+.swiper-slide:hover img {
+  transform: scale(1.05);
+}
+
+
+/* =====================================================
+   NAVIGATION BUTTON
+   ===================================================== */
+
+.swiper-button-next,
+.swiper-button-prev {
+   width: 50px !important;
+  height: 50px !important;
+
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+
+  color: #555;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 25px !important; 
+  font-weight: 500;
+  color: #777;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: #ffffff;
+  transform: scale(1.08);
+  color: #222;
+}
+
+
+/* =====================================================
+   PAGINATION
+   ===================================================== */
+
+.swiper-pagination {
+  bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+
+  background: #999;
+  opacity: 0.45;
+
+  transition: all 0.3s ease;
+}
+
 .swiper-pagination-bullet-active {
-  background: #2563eb;
+  width: 25px;
+  border-radius: 10px;
+  opacity: 1;
+  background: #555;
 }
 
-/* กล่องข้อความแสดงรายละเอียดด้านล่าง */
+
+/* =====================================================
+   PROJECT INFORMATION
+   ===================================================== */
+
 .project-info-display {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 150px; /* จองพื้นที่ไว้ไม่ให้เว็บขยับขึ้นลง */
+  max-width: 750px;
+  margin: 5px auto 0;
+
+  padding: 25px 35px 28px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(10px);
 }
 
-.project-info-display h3 {
+
+/* Project Title */
+
+#display-title {
+  margin: 0 0 10px;
+
+  font-family: "Montserrat", sans-serif;
   font-size: 24px;
-  color: #111827;
-  margin-bottom: 12px;
+  font-weight: 500;
+
+  letter-spacing: 1px;
+  color: #1f1f1f;
 }
 
-.project-info-display p {
-  font-size: 15px;
-  color: #4b5563;
-  line-height: 1.6;
-  margin-bottom: 20px;
+
+/* Description */
+
+#display-desc {
+  margin: 0 auto 18px;
+
+  max-width: 650px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.8;
+
+  color: #303030;
 }
+
+
+/* =====================================================
+   GITHUB BUTTON
+   ===================================================== */
 
 .github-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  background-color: #111827;
-  color: #ffffff;
-  text-decoration: none;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 11px 22px;
+
   border-radius: 30px;
-  font-size: 14px;
-  transition: background 0.3s ease;
+
+  background: #222;
+  color: #fff;
+
+  text-decoration: none;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+
+  transition: all 0.3s ease;
+}
+
+.github-btn i {
+  font-size: 16px;
 }
 
 .github-btn:hover {
-  background-color: #374151;
-}
-/* สร้างพื้นหลังวงกลมสีขาว พร้อมเงาให้ปุ่มลอยขึ้นมา */
-.swiper-button-next, .swiper-button-prev {
-  background-color: #ffffff;
-  width: 50px;       /* ปรับขนาดความกว้างปุ่ม */
-  height: 50px;      /* ปรับขนาดความสูงปุ่ม */
-  border-radius: 50%; /* ทำให้เป็นวงกลม */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* เพิ่มเงา */
-  color: #2563eb;    /* สีของลูกศร */
+  background: #555;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.18);
 }
 
-/* ปรับขนาดไอคอนลูกศรด้านในให้เล็กลงพอดีกับวงกลม */
-.swiper-button-next::after, .swiper-button-prev::after {
-  font-size: 20px !important;
-  font-weight: bold;
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 900px) {
+
+  .projects-section {
+    padding: 100px 25px 40px;
+  }
+
+  .projects-title {
+    font-size: 55px;
+    letter-spacing: 5px;
+  }
+
+  .mySwiper {
+    height: 380px;
+  }
+
+  .swiper-slide {
+    width: 430px;
+    height: 280px;
+  }
+
+  .project-info-display {
+    max-width: 650px;
+  }
 }
 
-/* (ออปชันเสริม) ถ้าอยากดันออกไปข้างนอกด้วย ก็ใส่ขอบเขตเพิ่มได้เลย */
-.swiper-button-next { right: 10px; }
-.swiper-button-prev { left: 10px; }
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  .projects-section {
+    padding: 90px 15px 30px;
+  }
+
+  .projects-title {
+    font-size: 35px;
+    letter-spacing: 3px;
+  }
+
+  .title-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .mySwiper {
+    height: 330px;
+    padding-bottom: 45px;
+  }
+
+  .swiper-slide {
+    width: 85vw;
+    height: 230px;
+    border-radius: 16px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 38px;
+    height: 38px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px;
+  }
+
+  .project-info-display {
+    padding: 20px 18px;
+    border-radius: 16px;
+  }
+
+  #display-title {
+    font-size: 19px;
+  }
+
+  #display-desc {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .github-btn {
+    font-size: 12px;
+    padding: 10px 18px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.back-to-top {
+  position: fixed;
+  bottom: 50px;
+  right: 90px;
+  width: 60px;
+  height: 60px;
+  background-color: #585f66;    /* สีปุ่ม (เปลี่ยนตามธีมเว็บได้) */
+  color: #ffffff;               /* สีไอคอน */
+  border: none;
+  border-radius: 50%;           /* ทำเป็นวงกลม */
+  box-shadow: 0 2px 10px rgb(49, 49, 49);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 9999;
+  opacity: 0;            /* ทำให้โปร่งใส 100% */
+  visibility: hidden;    /* ซ่อนจากการแสดงผล */
+  pointer-events: none;  /* ป้องกันการเผลอคลิกโดนล่องหน */
+  transition: all 0.3s ease;
+
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
