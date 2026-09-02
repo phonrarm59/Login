@@ -406,15 +406,21 @@ if (expTitle) {
         prevEl: ".swiper-button-prev",
       },
       on: {
-        // เมื่อเปลี่ยนสไลด์ ให้ดึงข้อมูลมาเปลี่ยนข้อความด้านล่าง
+        init: function () {
+          const activeSlide = this.slides[this.activeIndex];
+          document.getElementById("display-title").innerText = activeSlide.dataset.title;
+          document.getElementById("display-desc").innerText = activeSlide.dataset.desc;
+          document.getElementById("display-link").href = activeSlide.dataset.link;
+        },
+        // 2. ดึงข้อมูลใหม่ทุกครั้งที่เลื่อนสไลด์
         slideChangeTransitionStart: function () {
-          const firstSlide = swiper.slides[swiper.activeIndex];
-
-          document.getElementById("display-title").innerText = firstSlide.dataset.title;
-          document.getElementById("display-desc").innerText = firstSlide.dataset.desc;
-          document.getElementById("display-link").href = firstSlide.dataset.link;
+          const activeSlide = this.slides[this.activeIndex];
+          document.getElementById("display-title").innerText = activeSlide.dataset.title;
+          document.getElementById("display-desc").innerText = activeSlide.dataset.desc;
+          document.getElementById("display-link").href = activeSlide.dataset.link;
         }
       }
+      
     });
   });
 </script>
