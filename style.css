@@ -1278,6 +1278,89 @@ html {
 }
 
 
+/* เลย์เอาต์หน้า Contact */
+.contact-section {
+  min-height: 100vh;
+  padding: 100px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* ดันให้อยู่กลางจอพอดี */
+  box-sizing: border-box;
+}
+
+
+/* หัวข้อพิมพ์ดีด (CONTACT = 7 ตัวอักษร) */
+.contact-title {
+  font-family: "Cormorant Garamond", serif ;
+  color: #777;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 0 auto 40px auto;
+  font-size: 70px;
+  text-transform: uppercase;
+}
+
+.contact-title.active {
+  animation: typing-contact 1s steps(7, end) forwards, blink 1.0s infinite;
+}
+
+@keyframes typing-contact {
+  from { width: 0; }
+  to { width: 11ch; }
+}
+
+/* ตั้งค่าปุ่มติดต่อ */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* ระยะห่างระหว่างปุ่ม */
+}
+
+/* 1. ขยายความกว้างของพื้นที่จัดเก็บปุ่ม */
+.contact-container {
+  width: 100%;
+  max-width: 900px; /* เพิ่มจาก 400px เป็น 500px (ปรับตัวเลขเพิ่มได้ถ้าอยากให้กว้างอีก) */
+  text-align: center;
+}
+
+/* 2. บังคับปุ่มยืดเต็มพื้นที่และปรับความสูง/ความโค้ง */
+.contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ced4da; 
+  color: #000000;
+  text-decoration: none;
+  width: 100%; /* บังคับให้ปุ่มกางออกด้านข้างเต็ม 100% */
+  padding: 30px 30px; /* ลด padding บน-ล่างลงนิดหน่อยไม่ให้กล่องดูอ้วนเกินไป */
+  border-radius: 50px; /* เปลี่ยนจาก 12px เป็น 50px เพื่อให้ขอบมนเป็นทรงแคปซูลแบบเรฟแรก */
+  font-size: 30px;
+  position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.contact-btn:hover {
+  background-color: #adb5bd;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn i {
+  position: absolute;
+  left: 30px; /* ขยับไอคอนเข้ามานิดหน่อยให้สมดุลกับความกว้างใหม่ */
+  font-size: 30px;
+}
+/* จัดสีไอคอน Instagram ให้เป็น Gradient */
+.inst-icon {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 
 

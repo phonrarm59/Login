@@ -512,6 +512,65 @@ if (skillTitle) {
   </script>
 </section>
 
+<section id="C" class="contact-section">
+  <div class="contact-container">
+    
+    <div class="title-wrapper">
+      <h2 class="contact-title">CONTACT</h2>
+    </div>
+    
+    <div class="contact-links">
+      <a href="https://github.com/phonrarm59" target="_blank" class="contact-btn">
+        <i class="fa-brands fa-github" style="color: #000000;"></i>
+        <span>Github</span>
+      </a>
+
+      <!-- ปุ่ม Facebook -->
+      <a href="https://www.facebook.com/tepamorn.kt" target="_blank" class="contact-btn">
+        <i class="fa-brands fa-facebook" style="color: #1877F2;"></i>
+        <span>facebook</span>
+      </a>
+      
+      <!-- ปุ่ม Instagram -->
+      <a href="https://www.instagram.com/ll.luckkyy/" target="_blank" class="contact-btn">
+        <!-- ใช้ไอคอน Instagram พื้นฐาน และเติมสีด้วย CSS ด้านล่างเพื่อให้มีมิติ -->
+        <i class="fa-brands fa-instagram inst-icon"></i>
+        <span>instagram</span>
+      </a>
+      
+      <!-- ปุ่ม Gmail (ใช้ mailto: เพื่อเปิดแอปเมลอัตโนมัติ) -->
+      <a href="mailto:phonrarm59@gmail.com" class="contact-btn">
+        <i class="fa-regular fa-envelope" style="color: #000000;"></i>
+        <span>gmail</span>
+      </a>
+
+      <a href="tel:0612196580" class="contact-btn">
+        <i class="fa-solid fa-phone" style="color: #000000;"></i>
+        <span>081-234-5678</span>
+      </a>
+      <!-- ปุ่ม LINE -->
+      <a href="https://line.me/ti/p/~sompesx2" target="_blank" class="contact-btn">
+        <i class="fa-brands fa-line" style="color: #00B900;"></i>
+        <span>LINE</span>
+      </a>
+    </div>
+
+  </div>
+  <script>
+    // อนิเมชันหัวข้อหน้า CONTACT
+const contactTitle = document.querySelector(".contact-title");
+if (contactTitle) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) contactTitle.classList.add("active");
+      else contactTitle.classList.remove("active");
+    });
+  }, { threshold: 0.2 });
+  observer.observe(contactTitle);
+}
+  </script>
+</section>
+
 
 
 
