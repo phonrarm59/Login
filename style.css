@@ -1107,6 +1107,176 @@ html {
   }
 }
 
+/* skill */
+
+/* จัดให้เรียงจากบนลงล่าง */
+.skills-section {
+  min-height: 100vh;
+  padding: 100px 20px 60px 20px;
+  display: flex;
+  flex-direction: column; /* เพิ่มคำสั่งนี้ */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* จัดหัวข้อให้เริ่มพิมพ์จากตรงกลาง */
+.skills-title {
+  font-family: "Cormorant Garamond", serif ;
+  color: #777;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 0 auto; /* สั่งให้อยู่ตรงกลาง */
+  font-size: 70px;
+  margin-bottom: 60px;
+  margin-top: 70px;
+}
+
+/* อนิเมชันพิมพ์ดีด (WHAT I CAN DO = 15 ตัวอักษร) */
+.skills-title.active {
+  animation: typing-skill 1.5s steps(15, end) forwards, blink 0.75s infinite;
+}
+
+@keyframes typing-skill {
+  from { width: 0; }
+  to { width: 16ch; } 
+}
+
+/* แบ่ง 2 ฝั่งด้วย Grid */
+.skills-container {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* ซ้ายเล็กกว่าขวานิดหน่อย */
+  gap: 90px;
+}
+
+/* ฝั่งซ้าย */
+.skills-left {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.skills-desc {
+  font-size: 20px;
+  color: #3b3b3b;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* ตารางไอคอนฝั่งซ้าย */
+.tech-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.tech-icon {
+  background: #f3f4f6;
+  aspect-ratio: 1/1; /* ทำให้เป็นสี่เหลี่ยมจัตุรัสเสมอ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 35px;
+  color: #374151;
+  transition: all 0.3s ease;
+  box-shadow: #0000000d 0px 5px 9px 0px;
+}
+
+.tech-icon:hover {
+  background: #464646;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ฝั่งขวา (การ์ด) */
+.skills-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.skill-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,2,0.5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: #000000;
+}
+
+.skill-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.skill-number {
+  font-size: 24px;
+  font-weight: 300;
+  color: #424242;
+}
+
+.skill-card-header h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #111827;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.skill-main-icon {
+  font-size: 40px;
+  color: #2b2b2b;
+  margin-bottom: 20px;
+}
+
+.skill-card p {
+  font-size: 15px;
+  color: #000000;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1; /* ดัน tag ลงไปด้านล่าง */
+}
+
+/* ป้าย Tag ทักษะ */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tags span {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #374151;
+  font-weight: 500;
+}
+
+/* รองรับหน้าจอมือถือ */
+@media (max-width: 900px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+  .skills-right {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 

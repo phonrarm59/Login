@@ -425,6 +425,93 @@ if (expTitle) {
   });
 </script>
 </section>
+<!-- ส่วนที่ 4: Skills Section -->
+
+<section id="SKILLS" class="skills-section">
+  
+  <!-- 1. ย้ายหัวข้อมาไว้ตรงนี้ (ด้านบนสุดก่อนแบ่งฝั่ง) -->
+  <div class="title-wrapper">
+    <h2 class="skills-title">WHAT I CAN DO</h2>
+  </div>
+
+  <!-- 2. พื้นที่แบ่งฝั่งซ้าย-ขวา -->
+  <div class="skills-container">
+    
+    <!-- ฝั่งซ้าย: คำอธิบาย และตารางไอคอน -->
+    <div class="skills-left">
+      <p class="skills-desc">
+        "I specialize in building interactive web and mobile applications. By combining front-end development skills with practical problem-solving, I create clean, user-friendly digital experiences ranging from utility apps to responsive websites."
+      </p>
+      
+      <div class="tech-icon-grid">
+        <div class="tech-icon"><i class="fa-brands fa-html5"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-css3-alt"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-js"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-react"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-python"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-windows"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-github"></i></div>
+        <div class="tech-icon"><i class="fa-brands fa-gitlab"></i></div>
+      </div>
+    </div>
+
+    <!-- ฝั่งขวา: การ์ดลงลึกรายละเอียด (2 กล่อง) -->
+    <div class="skills-right">
+      
+      <!-- กล่องที่ 1 -->
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <span class="skill-number">01</span>
+          <h3>IT, WEB DEVELOPMENT & QA</h3>
+        </div>
+        <div class="skill-main-icon"><i class="fa-solid fa-code"></i></div>
+        <p>"Building and testing functional digital systems, from database-driven web applications to practical problem-solving."</p>
+        <div class="skill-tags">
+          <span>Web Development</span>
+          <span>System Testing</span>
+          <span>Database Management</span>
+          <span>MySQL</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+
+      <!-- กล่องที่ 2 -->
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <span class="skill-number">02</span>
+          <h3>Application Operations</h3>
+        </div>
+        <div class="skill-main-icon"><i class="fa-solid fa-mobile"></i></div>
+        <p>"Developing responsive and user-friendly mobile applications, focusing on intuitive interfaces, performance, and practical digital solutions."</p>
+        <div class="skill-tags">
+          <span>Application</span>
+          <span>Flutter</span>
+          <span>Easy to use</span>
+          <span>Solve the problem</span>
+          <span>Dart</span>
+          <span>C</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+    // อนิเมชันหัวข้อหน้า SKILLS
+const skillTitle = document.querySelector(".skills-title");
+if (skillTitle) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) skillTitle.classList.add("active");
+      else skillTitle.classList.remove("active");
+    });
+  }, { threshold: 0.2 });
+  observer.observe(skillTitle);
+}
+  </script>
+</section>
+
 
 
 
